@@ -1,15 +1,18 @@
+import 'react-native-gesture-handler';
 import React from 'react';
-import {Text} from 'react-native';
 import {Provider} from 'react-redux';
+import {createAppContainer} from 'react-navigation';
+
 import store from './src/redux/store/store';
-import DummyComponent from './src/components/DummyComponent';
+import DrawerNavigator from './src/navigators/rootStackNavigator';
+
+const AppContainer = createAppContainer(DrawerNavigator);
 
 const App = () => {
   return (
     <>
       <Provider store={store}>
-        <Text>Dummy Text</Text>
-        <DummyComponent />
+        <AppContainer />
       </Provider>
     </>
   );
